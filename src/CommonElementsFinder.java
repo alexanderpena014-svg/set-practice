@@ -14,8 +14,43 @@ public class CommonElementsFinder {
      * @return a Set<Integer> containing the integers that are present in both arrays
      */
     public static Set<Integer> findCommonElements(int[] array1, int[] array2) {
-        // TODO
-        return null;
+        Set<Integer> common = new HashSet<>();
+
+        Set<Integer> set1 = new HashSet<>();
+
+        for(int num1 : array1) { // O(n) n = len(arr1)
+            set1.add(num1); // O(n)
+        }
+
+        for(int num2 : array2) { // O(n) n = len(arr2) = len(arr1)
+            if(set1.contains(num2)) { // O(1)
+                common.add(num2); // O(1)
+            }
+        }
+        
+        // O(1 + 1 + n + n) = O(2n) = O(n), where n = len(arr1) = len(arr2)
+
+        // for(int num1 : array1) {
+        //     common.add(num1);
+        // }
+
+        // Set<Integer> toRemove = new HashSet<>();
+
+        // for(int num : common) {
+        //     boolean contains = false;
+        //     for(int num2 : array2) {
+        //         if(num2 == num) contains = true;
+        //     }
+        //     if(!contains) {
+        //         toRemove.add(num);
+        //     }
+        // }
+
+        // for(int num : toRemove) {
+        //     common.remove(num);
+        // }
+
+        return common;
     }
 
 
